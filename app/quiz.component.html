@@ -1,0 +1,13 @@
+<h1>Jeopardy!</h1>
+<div>{{question}}.</div>
+<div>
+<label>What is </label>
+<input [(ngModel)]="userAnswer" (keyup.enter)="submitAnswer()"> ?
+</div>
+<button (click)="submitAnswer()">Submit</button>
+<button (click)="loadQuestion()">Next question</button>
+<div [ngSwitch]="answerResult">
+    <p *ngSwitchCase="'wrong'">Wrong. Correct answer is "{{correctAnswer}}".</p>
+    <p *ngSwitchCase="'correct'">Correct! The answer is "{{correctAnswer}}".</p>
+    <p *ngSwitchDefault></p>
+</div>
